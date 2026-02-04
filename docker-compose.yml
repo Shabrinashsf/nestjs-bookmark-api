@@ -1,0 +1,15 @@
+version: '28.2'
+services:
+  bookmark_dev:
+    image: postgres:15
+    ports:
+      - "${DB_PORT}:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    networks:
+      - shsf-nestjs
+networks:
+  shsf-nestjs:
+    driver: bridge
